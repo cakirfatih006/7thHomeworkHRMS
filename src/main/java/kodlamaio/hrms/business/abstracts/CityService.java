@@ -3,12 +3,11 @@ package kodlamaio.hrms.business.abstracts;
 import java.util.List;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.entities.concretes.City;
 
-import kodlamaio.hrms.entities.concretes.JobTitle;
+public interface CityService {
 
-public interface JobTitleService {
+	DataResult<List<City>> getAll();
 	
-	
-	DataResult<List<JobTitle>> getAll();
 	
 }

@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="users")
 public class User {
 	
@@ -27,8 +30,9 @@ public class User {
 	
 	public User() {}
 	
-	public User(String email, String password,String repeatPassword) {
+	public User(String email, String password,String repeatPassword, int id) {
 		super();
+		this.id= id;
 		this.email = email;
 		this.password = password;
 		this.repeatPassword = repeatPassword;
@@ -56,6 +60,14 @@ public class User {
 
 	public void setRepeatPassword(String repeatPassword) {
 		this.repeatPassword = repeatPassword;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

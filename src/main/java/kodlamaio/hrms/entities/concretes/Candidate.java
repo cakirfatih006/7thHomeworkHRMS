@@ -2,10 +2,12 @@ package kodlamaio.hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="candidates")
+@PrimaryKeyJoinColumn(name="id") 
 public class Candidate extends User{
 	
 	@Column(name="first_name")

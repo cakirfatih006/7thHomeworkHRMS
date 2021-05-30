@@ -1,28 +1,43 @@
 package kodlamaio.hrms.entities.concretes;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+
 
 @Entity
 @Table(name="employers")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisement"})
+@PrimaryKeyJoinColumn(name="id") 
 public class Employer extends User{
-
+	
 	
 	@Column(name="company_name")
 	private String companyName;
 	
-	@Column(name="web_adress")
-	private String webAdress;
+	@Column(name="web_address")
+	private String webAddress;
 
 	@Column(name="phone_number")
 	private String phoneNumber;
+	
+	/*@JsonIgnore
+	@OneToMany(mappedBy= "employer")
+	private List<JobPosting> jobPostings;*/
 
 	public Employer(String companyName, String webAdress, String phoneNumber) {
 		super();
 		this.companyName = companyName;
-		this.webAdress = webAdress;
+		this.webAddress =webAdress;
 		this.phoneNumber = phoneNumber;
+		
 	}
 	
 	
@@ -40,12 +55,12 @@ public class Employer extends User{
 
 
 	public String getWebAdress() {
-		return webAdress;
+		return webAddress;
 	}
 
 
-	public void setWebAdress(String webAdress) {
-		this.webAdress = webAdress;
+	public void setWebAdress(String webAddress) {
+		this.webAddress = webAddress;
 	}
 
 
@@ -57,6 +72,8 @@ public class Employer extends User{
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+
 	
 	
 	
